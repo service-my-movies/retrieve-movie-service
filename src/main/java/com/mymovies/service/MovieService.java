@@ -43,7 +43,7 @@ public class MovieService implements IMovieService {
 			}
 
 		} catch (Exception e) {
-			LOGGER.error("Unexpected Error: getAPI_Movie: " + e);
+			LOGGER.error("Unexpected Error From Service: getAPI_Movie: " + e);
 		}
 
 		return movie;
@@ -57,7 +57,7 @@ public class MovieService implements IMovieService {
 		try {
 			movie = restTemplate.getForObject(BASE_URL+movie_id+API_KEY+Language, String.class);
 		} catch (Exception e) {
-			LOGGER.error("Unexpected Error: getAPI_DetailAll: " + e);
+			LOGGER.error("Unexpected Error From Service: getAPI_DetailAll: " + e);
 		}
 
 		return movie;

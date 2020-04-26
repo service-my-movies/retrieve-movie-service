@@ -30,7 +30,7 @@ public class MovieController implements IMovieController {
 		try {
 			movie = movieService.getAPI_Movie(movie_id);
 		} catch (Exception e) {
-			LOGGER.error("Unexpected Error: getAPI_Movie: " + e);
+			LOGGER.error("Unexpected Error From Controller: getAPI_Movie: " + e);
 		}
 
 		return movie;
@@ -49,7 +49,7 @@ public class MovieController implements IMovieController {
 		try {
 			movie = movieService.getAPI_MovieDetailAll(movie_id);
 		} catch (Exception e) {
-			LOGGER.error("Unexpected Error: getAPI_MovieDetailAll: " + e);
+			LOGGER.error("Unexpected Error From Controller: getAPI_MovieDetailAll: " + e);
 		}
 
 		return movie;
