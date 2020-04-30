@@ -31,10 +31,14 @@ public class MovieService implements IMovieService {
 	public MovieDTO getAPI_Movie(String movie_id) {
 
 		MovieDTO movie = null;
+		
+		String url = BASE_URL+movie_id+API_KEY+Language;
+		
+		LOGGER.info("@Get getAPI_Movie Service URL : " + url);
 
 		try {
 
-			movie = restTemplate.getForObject(BASE_URL+movie_id+API_KEY+Language, MovieDTO.class);
+			movie = restTemplate.getForObject(url, MovieDTO.class);
 
 			if(movie.getBackdrop_path() != null) {
 				movie.setPoster_path(BASE_URL_IMAGE+movie.getPoster_path());
@@ -55,9 +59,13 @@ public class MovieService implements IMovieService {
 	public String getAPI_MovieDetailAll(String movie_id) {
 
 		String movie = null;
+		
+		String url = BASE_URL+movie_id+API_KEY+Language;
+		
+		LOGGER.info("@Get getAPI_MovieDetailAll Service URL : " + url);
 
 		try {
-			movie = restTemplate.getForObject(BASE_URL+movie_id+API_KEY+Language, String.class);
+			movie = restTemplate.getForObject(url, String.class);
 		} catch (Exception e) {
 			LOGGER.error("Unexpected Error From Service: getAPI_DetailAll: " + e);
 		}
